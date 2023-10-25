@@ -7,6 +7,7 @@ import branca
 import matplotlib.pyplot as plt
 import seaborn as sns
 import matplotlib.font_manager as fm 
+from matplotlib import rcParams
 
 
 st.set_page_config(page_title="히트맵 시각화",layout="wide", page_icon="📊")
@@ -39,10 +40,9 @@ df = pd.read_csv("./전국_월별_읍면동별_독립변인_법규위반_노면�
 
 col1, col2, col3 = st.columns([1,5,2])
 with col2:
-    plt.rc("font", family = "NanumGothic")
-    sns.set(font="NanumGothic", 
-    rc={"axes.unicode_minus":False}, style='white')
-    
+    rcParams['font.sans-serif'] = ['NanumGothic', 'Malgun Gothic']
+    rcParams['font.family'] = 'sans-serif'
+  
     st.markdown("""
     <style>
     .big-font {
