@@ -7,10 +7,11 @@ import branca
 import matplotlib.pyplot as plt
 import seaborn as sns
 import matplotlib.font_manager as fm 
-from matplotlib import rcParams
 
-plt.rcParams['axes.unicode_minus'] = False
-plt.rcParams['font.family'] = 'NanumGothic'
+
+font_path = "C:/Windows/Fonts/NanumGothic.TTF"
+font = font_manager.FontProperties(fname=font_path).get_name()
+rc('font', family=font)
 
 st.set_page_config(page_title="히트맵 시각화",layout="wide", page_icon="📊")
 
