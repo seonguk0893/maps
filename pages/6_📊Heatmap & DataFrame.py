@@ -39,8 +39,8 @@ df = pd.read_csv("./전국_월별_읍면동별_독립변인_법규위반_노면�
 
 col1, col2, col3 = st.columns([1,5,2])
 with col2:
-    plt.rc("font", family = "Malgun Gothic")
-    sns.set(font="Malgun Gothic", 
+    plt.rc("font", family = "NanumGothic")
+    sns.set(font="NanumGothic", 
     rc={"axes.unicode_minus":False}, style='white')
     
     st.markdown("""
