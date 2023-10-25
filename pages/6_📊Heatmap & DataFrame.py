@@ -7,7 +7,7 @@ import branca
 import matplotlib.pyplot as plt
 import seaborn as sns
 import matplotlib.font_manager as fm 
-
+from matplotlib import font_manager, rc
 
 font_path = "C:/Windows/Fonts/NanumGothic.TTF"
 font = font_manager.FontProperties(fname=font_path).get_name()
