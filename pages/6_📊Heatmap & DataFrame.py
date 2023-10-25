@@ -11,11 +11,6 @@ import matplotlib.font_manager as fm
 
 st.set_page_config(page_title="히트맵 시각화",layout="wide", page_icon="📊")
 
-plt.rc("font", family = "Malgun Gothic")
-sns.set(font="Malgun Gothic", 
-rc={"axes.unicode_minus":False}, style='white')
-
-
 # Define your province and city data
 sido_options = ["선택","서울특별시", "부산광역시", "대구광역시", "인천광역시", "광주광역시", "대전광역시", "울산광역시", "세종특별자치시",  "경기도", "강원도",
                 "충청북도", "충청남도", "전라북도", "전라남도", "경상북도",  "경상남도", "제주특별자치도"]
@@ -44,6 +39,10 @@ df = pd.read_csv("./전국_월별_읍면동별_독립변인_법규위반_노면�
 
 col1, col2, col3 = st.columns([1,5,2])
 with col2:
+    plt.rc("font", family = "Malgun Gothic")
+    sns.set(font="Malgun Gothic", 
+    rc={"axes.unicode_minus":False}, style='white')
+    
     st.markdown("""
     <style>
     .big-font {
