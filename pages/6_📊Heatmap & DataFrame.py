@@ -8,9 +8,27 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import matplotlib.font_manager as fm 
 from matplotlib import font_manager, rc
+import matplotlib
 
-plt.rc("font", family = "NanumGothic")
-sns.set(font="NanumGothic", rc={"axes.unicode_minus":False}, style='white')   
+plt.rcParams['font.family'] = 'Malgun Gothic'
+plt.rcParams['axes.unicode_minus'] = False
+
+plt.rc('font', family='Malgun Gothic')
+sns.set(font="Malgun Gothic",#"NanumGothicCoding", 
+        rc={"axes.unicode_minus":False}, # 마이너스 부호 깨짐 현상 해결
+        style='darkgrid')        
+
+try : 
+    if platform.system() == 'Windows':
+    # 윈도우인 경우
+        font_name = font_manager.FontProperties(fname="c:/Windows/Fonts/malgun.ttf").get_name()
+        rc('font', family=font_name)
+    else:    
+    # Mac 인 경우
+        rc('font', family='AppleGothic')
+except : 
+    pass
+matplotlib.rcParams['axes.unicode_minus'] = False
 
 st.set_page_config(page_title="히트맵 시각화",layout="wide", page_icon="📊")
 
