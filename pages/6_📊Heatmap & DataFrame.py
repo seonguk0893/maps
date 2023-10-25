@@ -9,9 +9,8 @@ import seaborn as sns
 import matplotlib.font_manager as fm 
 from matplotlib import font_manager, rc
 
-font_path = "C:/Windows/Fonts/NanumGothic.TTF"
-font = font_manager.FontProperties(fname=font_path).get_name()
-rc('font', family=font)
+plt.rc("font", family = "NanumGothic")
+sns.set(font="NanumGothic", rc={"axes.unicode_minus":False}, style='white')   
 
 st.set_page_config(page_title="히트맵 시각화",layout="wide", page_icon="📊")
 
@@ -78,11 +77,15 @@ with col2:
     # Create a heatmap for the selected "시도" and "시군"
     st.write(f"## Heatmap for {selected_sido} {selected_sigun}")
     plt.figure(figsize=(10, 8))
-    sns.heatmap(correlation_matrix, annot=True, cmap="coolwarm", linewidths=.5, fmt=".2f")
-    heatmap_figure = plt.gcf()  # Get the current figure
+    # sns.heatmap(correlation_matrix, annot=True, cmap="coolwarm", linewidths=.5, fmt=".2f")
+    # heatmap_figure = plt.gcf()  # Get the current figure
 
     # Display the figure using st.pyplot()
-    st.pyplot(heatmap_figure)
+    # st.pyplot(heatmap_figure)
+    plot = sns.heatmap(correlation_matrix, annot=True, cmap="coolwarm", linewidths=.5, fmt=".2f")
+ 
+    # 플롯을 Streamlit에 표시
+    st.pyplot(plot.get_figure())
 
     # Display the filtered DataFrame with the selected columns
     st.write(f"## DataFrame for {selected_sido} {selected_sigun}")
