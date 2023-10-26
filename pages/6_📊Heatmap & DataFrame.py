@@ -21,7 +21,7 @@ sns.set(font="Malgun Gothic",#"NanumGothicCoding",
 try : 
     if platform.system() == 'Windows':
     # 윈도우인 경우
-        font_name = font_manager.FontProperties(fname="c:/Windows/Fonts/malgun.ttf").get_name()
+        font_name = font_manager.FontProperties(fname="./fonts/MALGUN.ttf").get_name()
         rc('font', family=font_name)
     else:    
     # Mac 인 경우
