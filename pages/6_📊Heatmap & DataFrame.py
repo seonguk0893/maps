@@ -9,7 +9,7 @@ import seaborn as sns
 import matplotlib.font_manager as fm 
 from matplotlib import font_manager, rc
 
-font_location = './fonts/NanumGothic.ttf'  #font 경로 설정
+font_location = './fonts/NANUMGOTHIC.TTF'  #font 경로 설정
 font_name = fm.FontProperties(fname=font_location).get_name()
 plt.rc('font', family=font_name)
 
