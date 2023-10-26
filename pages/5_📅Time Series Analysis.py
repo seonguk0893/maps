@@ -90,8 +90,8 @@ with col2:
         st.write("----------------------------------------")
 
         # 2023년 예측 데이터 시각화
-        st.write('## 월별 민원 건수 예측(2023년)')
-        st.line_chart(forecast_df.set_index('날짜'), color = ["#FF0000"])
+        st.markdown('## <span style="color:green">월별 민원 건수 예측(2023년)</span>', unsafe_allow_html=True)
+        st.line_chart(forecast_df.set_index('날짜'), color = ["#008000"])
 
         # 2023년 예측 데이터 표시
         st.write('### 월별 민원 건수 예측 데이터(2023년)')
