@@ -87,11 +87,12 @@ with col2:
         # 2023년 예측 데이터를 데이터프레임으로 생성
         forecast_dates = pd.date_range(start='2023-01', periods=n_forecast, freq='M')
         forecast_df = pd.DataFrame({'날짜': forecast_dates, '예측된_민원_전체건수_2023': forecast})
+        st.write("----------------------------------------")
 
         # 2023년 예측 데이터 시각화
-        st.write('## 2023년 민원 건수 예측')
-        st.line_chart(forecast_df.set_index('날짜'))
+        st.write('## 월별 민원 건수 예측(2023년)')
+        st.line_chart(forecast_df.set_index('날짜'), color = ["#FF0000"])
 
         # 2023년 예측 데이터 표시
-        st.write('## 2023년 민원 건수 예측 데이터')
+        st.write('### 월별 민원 건수 예측 데이터(2023년)')
         st.dataframe(forecast_df)
