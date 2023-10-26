@@ -38,7 +38,7 @@ sigun_list = {
     "제주특별자치도": ["선택", "서귀포시", "제주시"]
 }
 
-df = pd.read_csv("./전국_월별_읍면동별_독립변인_법규위반_노면상태_기상상태_도로형태_완료_1006.csv")
+df = pd.read_csv("./전국_월별_읍면동별_독립변인_법규위반_노면상태_기상상태_도로형태_완료_1006 - 영어.csv")
 
 col1, col2, col3 = st.columns([1,5,2])
 with col2:
@@ -64,8 +64,8 @@ with col2:
     # Filter the DataFrame based on the selected "시도" and "시군"
     filtered_df = df[(df['시군구_시도명'] == selected_sido) & (df['시군구_시군명'] == selected_sigun)]
 
-    selected_columns = ['교통사고위험지수', '꼬리물기_건수', '불법유턴_건수', '불법좌회전_건수', '신호위반_건수', '역주행_건수', '정지선침범_건수', '중앙선침범_건수',
-                        '지정차로위반_건수', '진로변경방법위반_건수', '민원_전체건수']
+    selected_columns = ['traffic_weight', 'Tailgating', 'Illegal U-turns', 'Illegal left turn', 'Signal Violation', 'Reverse driving', 'Stop Line Violations', 'Center line violation',
+                        'Lane Violation', 'Course change violation', 'Total complaints']
 
 
     # Create a subset of the DataFrame with only the selected columns
