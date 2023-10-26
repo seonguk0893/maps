@@ -9,7 +9,7 @@ import seaborn as sns
 import matplotlib.font_manager as fm 
 from matplotlib import font_manager, rc
 
-font_family = "sans serif"
+font_family = "NANUMGOTHIC.TTF"
 plt.rcParams["font.family"] = font_family
 
 st.set_page_config(page_title="히트맵 시각화",layout="wide", page_icon="📊")
