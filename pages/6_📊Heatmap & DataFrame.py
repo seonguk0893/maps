@@ -7,14 +7,12 @@ import branca
 import matplotlib.pyplot as plt
 import seaborn as sns
 import matplotlib.font_manager as fm 
+from matplotlib import font_manager, rc
 
+font_path = './NanumGothic.ttf'
+fontprop = fm.FontProperties(fname=font_path, size=18)
 
 st.set_page_config(page_title="히트맵 시각화",layout="wide", page_icon="📊")
-
-plt.rc("font", family = "Malgun Gothic")
-sns.set(font="Malgun Gothic", 
-rc={"axes.unicode_minus":False}, style='white')
-
 
 # Define your province and city data
 sido_options = ["선택","서울특별시", "부산광역시", "대구광역시", "인천광역시", "광주광역시", "대전광역시", "울산광역시", "세종특별자치시",  "경기도", "강원도",
@@ -40,10 +38,11 @@ sigun_list = {
     "제주특별자치도": ["선택", "서귀포시", "제주시"]
 }
 
-df = pd.read_csv("./전국_월별_읍면동별_독립변인_법규위반_노면상태_기상상태_도로형태_완료_1006.csv")
+df = pd.read_csv("./전국_월별_읍면동별_독립변인_법규위반_노면상태_기상상태_도로형태_완료_1006 - 영어.csv")
 
 col1, col2, col3 = st.columns([1,5,2])
 with col2:
+
     st.markdown("""
     <style>
     .big-font {
@@ -65,8 +64,8 @@ with col2:
     # Filter the DataFrame based on the selected "시도" and "시군"
     filtered_df = df[(df['시군구_시도명'] == selected_sido) & (df['시군구_시군명'] == selected_sigun)]
 
-    selected_columns = ['교통사고위험지수', '꼬리물기_건수', '불법유턴_건수', '불법좌회전_건수', '신호위반_건수', '역주행_건수', '정지선침범_건수', '중앙선침범_건수',
-                        '지정차로위반_건수', '진로변경방법위반_건수', '민원_전체건수']
+    selected_columns = ['traffic_weight', 'Tailgating', 'Illegal U-turns', 'Illegal left turn', 'Signal Violation', 'Reverse driving', 'Stop Line Violations', 'Center line violation',
+                        'Lane Violation', 'Course change violation', 'Total complaints']
 
 
     # Create a subset of the DataFrame with only the selected columns
@@ -78,11 +77,15 @@ with col2:
     # Create a heatmap for the selected "시도" and "시군"
     st.write(f"## Heatmap for {selected_sido} {selected_sigun}")
     plt.figure(figsize=(10, 8))
-    sns.heatmap(correlation_matrix, annot=True, cmap="coolwarm", linewidths=.5, fmt=".2f")
-    heatmap_figure = plt.gcf()  # Get the current figure
+    # sns.heatmap(correlation_matrix, annot=True, cmap="coolwarm", linewidths=.5, fmt=".2f")
+    # heatmap_figure = plt.gcf()  # Get the current figure
 
     # Display the figure using st.pyplot()
-    st.pyplot(heatmap_figure)
+    # st.pyplot(heatmap_figure)
+    plot = sns.heatmap(correlation_matrix, annot=True, cmap="coolwarm", linewidths=.5, fmt=".2f")
+ 
+    # 플롯을 Streamlit에 표시
+    st.pyplot(plot.get_figure())
 
     # Display the filtered DataFrame with the selected columns
     st.write(f"## DataFrame for {selected_sido} {selected_sigun}")

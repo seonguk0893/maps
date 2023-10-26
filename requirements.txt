@@ -1,0 +1,8 @@
+streamlit
+matplotlib
+folium
+streamlit_folium
+branca
+streamlit_extras
+statsmodels
+seaborn
