@@ -9,9 +9,9 @@ import seaborn as sns
 import matplotlib.font_manager as fm 
 from matplotlib import font_manager, rc
 
-plt.rc("font", family = "NanumGothic")
-sns.set(font="NanumGothic", 
-rc={"axes.unicode_minus":False}, style='white')
+font_location = 'C:/Users/USER/AppData/Local/Microsoft/Windows/Fonts/NanumGothic.ttf'  #font 경로 설정
+font_name = fm.FontProperties(fname=font_location).get_name()
+plt.rc('font', family=font_name)
 
 st.set_page_config(page_title="히트맵 시각화",layout="wide", page_icon="📊")
 
