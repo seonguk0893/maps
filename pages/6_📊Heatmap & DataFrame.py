@@ -9,10 +9,8 @@ import seaborn as sns
 import matplotlib.font_manager as fm 
 from matplotlib import font_manager, rc
 
-font_fname = './NanumGothic.ttf'
-font_family = font_manager.FontProperties(fname=font_fname).get_name()
-
-plt.rcParams["font.family"] = font_family
+font_path = './NanumGothic.ttf'
+fontprop = fm.FontProperties(fname=font_path, size=18)
 
 st.set_page_config(page_title="히트맵 시각화",layout="wide", page_icon="📊")
 
